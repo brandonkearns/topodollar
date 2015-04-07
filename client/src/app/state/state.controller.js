@@ -126,7 +126,7 @@ angular.module('incomeMaps')
     function renderMap(state) { 
       console.log('State:');
       console.log(state);
-      d3.json('api/states/' + state, function(error, state) {
+      d3.json('/api/states/' + state, function(error, state) {
         console.log(state);
         var selectedState = _.find(infoOnStates, function(infoOnState) {
           return infoOnState.name === state.name;
