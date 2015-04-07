@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cyborg/bootstrap.min.css" rel="stylesheet">
     <!-- endbuild -->
 
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
@@ -23,8 +24,9 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div ui-view></div>
+    <div class='container'>
+      <div ui-view></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

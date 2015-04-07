@@ -2,7 +2,7 @@
 
 angular.module('incomeMaps')
   .controller('StateCtrl', function ($scope, $stateParams) {
-      var infoOnStates = [
+    var infoOnStates = [
         {'name': 'Alabama',                         'abbreviation': 'AL'},
         {'name': 'Alaska',                          'abbreviation': 'AK'},
         {'name': 'American Samoa',                  'abbreviation': 'AS'},
