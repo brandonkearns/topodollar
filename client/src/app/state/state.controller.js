@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('incomeMaps')
-  .controller('StateCtrl', function ($scope, $stateParams) {
+  .controller('StateCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
     var infoOnStates = [
         {'name': 'Alabama',                         'abbreviation': 'AL'},
         {'name': 'Alaska',                          'abbreviation': 'AK'},
@@ -133,7 +133,7 @@ angular.module('incomeMaps')
         });
 
         var i;
-        var width = 960,
+        var width = 540,
             height = 1160;
 
         var quantize = d3.scale.quantize()
@@ -148,7 +148,7 @@ angular.module('incomeMaps')
         var projection = d3.geo.mercator()
                      .center(state.data.transform.translate)
                      .scale(3000)
-                     .translate([width / 3, height / 3]);
+                     .translate([width / 2, height / 2]);
 
 
         var path = d3.geo.path()
@@ -165,7 +165,7 @@ angular.module('incomeMaps')
 
         function reportData(tract) {
          d3.select('#databox').text(function() {
-           return tract.properties.income;
+           return '$' + tract.properties.income;
          });
         }
       });
@@ -175,4 +175,4 @@ angular.module('incomeMaps')
 
     renderMap($stateParams.name);
 
-  });
+  }]);
