@@ -133,7 +133,7 @@ angular.module('incomeMaps')
         });
 
         var i;
-        var width = 540,
+        var width = 960,
             height = 1160;
 
         var quantize = d3.scale.quantize()
