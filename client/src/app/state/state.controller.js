@@ -147,8 +147,8 @@ angular.module('incomeMaps')
 
         var projection = d3.geo.mercator()
                      .center(state.data.transform.translate)
-                     .scale(3000)
-                     .translate([width / 2, height / 2]);
+                     .scale(5000)
+                     .translate([ width / 2 , height / 2 ]);
 
 
         var path = d3.geo.path()
