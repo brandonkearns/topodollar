@@ -118,6 +118,8 @@ angular.module('incomeMaps')
         {'name': 'Wyoming',                         'abbreviation': 'WY'}
     ];
 
+    renderMap($stateParams.name);
+
     $scope.updateState = function(updateState) {
 
       renderMap(updateState);
@@ -137,7 +139,7 @@ angular.module('incomeMaps')
             height = 1160;
 
         var quantize = d3.scale.quantize()
-            .domain([0, 150000])
+            .domain([0, 125000])
             .range(d3.range(9).map(function(i) { return 'q' + i + '-9'; }));
 
         var svg = d3.select('body').append('svg')
@@ -173,6 +175,5 @@ angular.module('incomeMaps')
     console.log('StateParams name');
     console.log($stateParams.name);
 
-    renderMap($stateParams.name);
 
   }]);
