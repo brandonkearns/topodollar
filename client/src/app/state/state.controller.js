@@ -121,7 +121,6 @@ angular.module('incomeMaps')
     renderMap($stateParams.name);
 
     $scope.updateState = function(updateState) {
-
       renderMap(updateState);
     };
 
@@ -134,7 +133,6 @@ angular.module('incomeMaps')
           return infoOnState.name === state.name;
         });
 
-        var i;
         var width = 960,
             height = 1160;
 
