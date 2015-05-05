@@ -128,7 +128,6 @@ angular.module('incomeMaps')
       console.log('State:');
       console.log(state);
       d3.json('/api/states/' + state, function(error, state) {
-        console.log(state);
         var selectedState = _.find(infoOnStates, function(infoOnState) {
           return infoOnState.name === state.name;
         });
@@ -150,24 +149,24 @@ angular.module('incomeMaps')
                      .scale(5000)
                      .translate([ width / 2 , height / 2 ]);
 
-
         var path = d3.geo.path()
                .projection(projection);
-      svg.selectAll('path')
-        .data(topojson.feature(state.data, state.data.objects[selectedState.abbreviation]).features)
-        .enter().append('path')
-        .attr('class', function(d) { return quantize(d.properties.income); })
-        .attr('d', path)
-        .on('click', function(d) {
-          reportData(d);
-          console.log(d.properties.income);
-        });
 
-        function reportData(tract) {
-         d3.select('#databox').text(function() {
-           return '$' + tract.properties.income;
-         });
-        }
+        svg.selectAll('path')
+          .data(topojson.feature(state.data, state.data.objects[selectedState.abbreviation]).features)
+          .enter().append('path')
+          .attr('class', function(d) { return quantize(d.properties.income); })
+          .attr('d', path)
+          .on('click', function(d) {
+            reportData(d);
+            console.log(d.properties.income);
+          });
+
+          function reportData(tract) {
+           d3.select('#databox').text(function() {
+             return '$' + tract.properties.income;
+           });
+          }
       });
     }
     console.log('StateParams name');
