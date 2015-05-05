@@ -9,7 +9,7 @@ angular.module('incomeMaps', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         controller: 'MainCtrl'
       })
       .state('state', {
-        url: '/state/:name',
+        url: '/state/:id',
         templateUrl: 'app/state/state.html',
         controller: 'StateCtrl'
       });

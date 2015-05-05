@@ -5,7 +5,6 @@ angular.module('incomeMaps')
     var infoOnStates = [
         {'name': 'Alabama',                         'abbreviation': 'AL'},
         {'name': 'Alaska',                          'abbreviation': 'AK'},
-        {'name': 'American Samoa',                  'abbreviation': 'AS'},
         {'name': 'Arizona',                         'abbreviation': 'AZ'},
         {'name': 'Arkansas',                        'abbreviation': 'AR'},
         {'name': 'California',                      'abbreviation': 'CA'},
@@ -33,26 +32,26 @@ angular.module('incomeMaps')
         {'name': 'Montana',                         'abbreviation': 'MT'},
         {'name': 'Nebraska',                        'abbreviation': 'NE'},
         {'name': 'Nevada',                          'abbreviation': 'NV'},
-        {'name': 'Nh',                              'abbreviation': 'NH'},
-        {'name': 'Nj',                              'abbreviation': 'NJ'},
-        {'name': 'Nm',                              'abbreviation': 'NM'},
-        {'name': 'Ny',                              'abbreviation': 'NY'},
-        {'name': 'Nc',                              'abbreviation': 'NC'},
-        {'name': 'Nd',                              'abbreviation': 'ND'},
+        {'name': 'Newhampshire',                    'abbreviation': 'NH'},
+        {'name': 'Newjersey',                       'abbreviation': 'NJ'},
+        {'name': 'Newmexico',                       'abbreviation': 'NM'},
+        {'name': 'Newyork',                         'abbreviation': 'NY'},
+        {'name': 'Northcarolina',                   'abbreviation': 'NC'},
+        {'name': 'Northdakota',                     'abbreviation': 'ND'},
         {'name': 'Ohio',                            'abbreviation': 'OH'},
         {'name': 'Oklahoma',                        'abbreviation': 'OK'},
         {'name': 'Oregon',                          'abbreviation': 'OR'},
         {'name': 'Pennsylvania',                    'abbreviation': 'PA'},
-        {'name': 'Ri',                              'abbreviation': 'RI'},
-        {'name': 'Sc',                              'abbreviation': 'SC'},
-        {'name': 'Sd',                              'abbreviation': 'SD'},
+        {'name': 'Rhodeisland',                     'abbreviation': 'RI'},
+        {'name': 'Southcarolina',                   'abbreviation': 'SC'},
+        {'name': 'Southcarolina',                   'abbreviation': 'SD'},
         {'name': 'Tennessee',                       'abbreviation': 'TN'},
         {'name': 'Texas',                           'abbreviation': 'TX'},
         {'name': 'Utah',                            'abbreviation': 'UT'},
         {'name': 'Vermont',                         'abbreviation': 'VT'},
         {'name': 'Virginia',                        'abbreviation': 'VA'},
         {'name': 'Washington',                      'abbreviation': 'WA'},
-        {'name': 'Wv',                              'abbreviation': 'WV'},
+        {'name': 'Westvirginia',                    'abbreviation': 'WV'},
         {'name': 'Wisconsin',                       'abbreviation': 'WI'},
         {'name': 'Wyoming',                         'abbreviation': 'WY'}
     ];
@@ -118,15 +117,13 @@ angular.module('incomeMaps')
         {'name': 'Wyoming',                         'abbreviation': 'WY'}
     ];
 
-    renderMap($stateParams.name);
+    renderMap($stateParams.id);
 
-    $scope.updateState = function(updateState) {
-      renderMap(updateState);
-    };
+    // $scope.updateState = function(updateState) {
+    //   renderMap(updateState);
+    // };
 
     function renderMap(state) { 
-      console.log('State:');
-      console.log(state);
       d3.json('/api/states/' + state, function(error, state) {
         var selectedState = _.find(infoOnStates, function(infoOnState) {
           return infoOnState.name === state.name;
@@ -142,7 +139,6 @@ angular.module('incomeMaps')
         var svg = d3.select('body').append('svg')
                 .attr('width', width)
                 .attr('height', height);
-
 
         var projection = d3.geo.mercator()
                      .center(state.data.transform.translate)
@@ -169,8 +165,4 @@ angular.module('incomeMaps')
           }
       });
     }
-    console.log('StateParams name');
-    console.log($stateParams.name);
-
-
   }]);

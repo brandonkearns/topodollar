@@ -50,7 +50,7 @@ class Api::StatesController < ApplicationController
   private
 
     def set_state
-      @state = State.find_by(name: params[:name].capitalize)
+      @state = State.find_by(name: params[:name].capitalize.delete(' '))
     end
 
     def state_params
