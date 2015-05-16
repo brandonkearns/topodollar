@@ -1,9 +1,18 @@
 <div class="container">
 
-  <div ng-include="'app/components/navbar/navbar.html'"></div>
+  <div ng-include="'app/components/navbar/navbar.html'">
+  </div>
 
-
-
+  <h1>TopoDollar</h1>
+  <br>
+  <h3>income data for all 50 states</h3>
+  
+  <div ng-controller='StateCtrl'>
+    <select ng-model='selected' ng-options='place.name for place in newStates'></select>
+    <pre>{{ selected | json}}</pre>
+    <button ng-click='showSelected()'>Go</button>
+  </div>
+  
   <div class="footer">
     <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
   </div>

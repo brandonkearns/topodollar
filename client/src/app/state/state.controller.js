@@ -58,7 +58,6 @@ angular.module('incomeMaps')
     $scope.newStates = [
         {'name': 'Alabama',                         'abbreviation': 'AL'},
         {'name': 'Alaska',                          'abbreviation': 'AK'},
-        {'name': 'American Samoa',                  'abbreviation': 'AS'},
         {'name': 'Arizona',                         'abbreviation': 'AZ'},
         {'name': 'Arkansas',                        'abbreviation': 'AR'},
         {'name': 'California',                      'abbreviation': 'CA'},
@@ -66,10 +65,8 @@ angular.module('incomeMaps')
         {'name': 'Connecticut',                     'abbreviation': 'CT'},
         {'name': 'Delaware',                        'abbreviation': 'DE'},
         {'name': 'District Of Columbia',            'abbreviation': 'DC'},
-        {'name': 'Federated States Of Micronesia',  'abbreviation': 'FM'},
         {'name': 'Florida',                         'abbreviation': 'FL'},
         {'name': 'Georgia',                         'abbreviation': 'GA'},
-        {'name': 'Guam',                            'abbreviation': 'GU'},
         {'name': 'Hawaii',                          'abbreviation': 'HI'},
         {'name': 'Idaho',                           'abbreviation': 'ID'},
         {'name': 'Illinois',                        'abbreviation': 'IL'},
@@ -79,7 +76,6 @@ angular.module('incomeMaps')
         {'name': 'Kentucky',                        'abbreviation': 'KY'},
         {'name': 'Louisiana',                       'abbreviation': 'LA'},
         {'name': 'Maine',                           'abbreviation': 'ME'},
-        {'name': 'Marshall Islands',                'abbreviation': 'MH'},
         {'name': 'Maryland',                        'abbreviation': 'MD'},
         {'name': 'Massachusetts',                   'abbreviation': 'MA'},
         {'name': 'Michigan',                        'abbreviation': 'MI'},
@@ -95,11 +91,9 @@ angular.module('incomeMaps')
         {'name': 'New York',                        'abbreviation': 'NY'},
         {'name': 'North Carolina',                  'abbreviation': 'NC'},
         {'name': 'North Dakota',                    'abbreviation': 'ND'},
-        {'name': 'Northern Mariana Islands',        'abbreviation': 'MP'},
         {'name': 'Ohio',                            'abbreviation': 'OH'},
         {'name': 'Oklahoma',                        'abbreviation': 'OK'},
         {'name': 'Oregon',                          'abbreviation': 'OR'},
-        {'name': 'Palau',                           'abbreviation': 'PW'},
         {'name': 'Pennsylvania',                    'abbreviation': 'PA'},
         {'name': 'Puerto Rico',                     'abbreviation': 'PR'},
         {'name': 'Rhode Island',                    'abbreviation': 'RI'},
@@ -109,7 +103,6 @@ angular.module('incomeMaps')
         {'name': 'Texas',                           'abbreviation': 'TX'},
         {'name': 'Utah',                            'abbreviation': 'UT'},
         {'name': 'Vermont',                         'abbreviation': 'VT'},
-        {'name': 'Virgin Islands',                  'abbreviation': 'VI'},
         {'name': 'Virginia',                        'abbreviation': 'VA'},
         {'name': 'Washington',                      'abbreviation': 'WA'},
         {'name': 'West Virginia',                   'abbreviation': 'WV'},
@@ -117,8 +110,15 @@ angular.module('incomeMaps')
         {'name': 'Wyoming',                         'abbreviation': 'WY'}
     ];
 
-    renderMap($stateParams.id);
+    $scope.selected = $scope.newStates[0];
 
+    console.log($scope.selected);
+
+    renderMap($stateParams.name);
+
+    $scope.showSelected = function() {
+      $state.go('state/' + $scope.selected.name);
+    };
     // $scope.updateState = function(updateState) {
     //   renderMap(updateState);
     // };
